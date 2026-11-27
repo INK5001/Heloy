@@ -1,20 +1,567 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Mundo Felino - Conoce las Razas de Gatos</title> <!-- Tailwind CSS CDN --> <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> <style> body { font-family: 'Poppins', sans-serif; } </style> </head> <body class="bg-amber-50 text-slate-800">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio | Kinnereth Geraldine Bazán Zúñiga</title>
+  <style>
+    :root {
+      --bg-sky: #dff2fe;
+      --bg-sky-mid: #cbeafe;
+      --bg-card: #eef7ff;
+      --bg-card-alt: #f3e8ff;
+      --bg-card-yellow: #fef9c3;
+      --sky-main: #0284c7;
+      --sky-deep: #0369a1;
+      --purple-deep: #4c1d95;
+      --purple-main: #7c3aed;
+      --purple-soft: #e9d5ff;
+      --yellow-main: #eab308;
+      --yellow-warm: #f59e0b;
+      --yellow-soft: #fef08a;
+      --text-dark: #1e1b4b;
+      --text-muted: #334155;
+      --border-sky: #93c5fd;
+      --shadow-card: 0 10px 25px rgba(2, 132, 199, 0.12);
+    }
 
-<!-- Header / Navegación --> <header class="bg-white shadow-md sticky top-0 z-50"> <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"> <div class="flex items-center space-x-2"> <span class="text-3xl">🐱</span> <span class="text-xl font-bold tracking-wide text-amber-600">Mundo Felino</span> </div> <nav class="hidden md:flex space-x-6 text-sm font-semibold"> <a href="#inicio" class="hover:text-amber-600 transition">Inicio</a> <a href="#razas" class="hover:text-amber-600 transition">Razas Populares</a> <a href="#cuidados" class="hover:text-amber-600 transition">Cuidados</a> <a href="#contacto" class="hover:text-amber-600 transition">Contacto</a> </nav> </div> </header>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-<!-- Hero Section --> <section id="inicio" class="relative bg-amber-600 text-white py-20 px-4"> <div class="max-w-5xl mx-auto text-center"> <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Descubre el Fascinante Universo de los Gatos</h1> <p class="text-lg md:text-xl mb-8 text-amber-100 max-w-2xl mx-auto">Aprende sobre las razas más hermosas, sus personalidades únicas y cómo darles el mejor cuidado posible.</p> <a href="#razas" class="bg-white text-amber-700 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-amber-50 transition transform hover:-translate-y-1 inline-block">Explorar Razas</a> </div> </section>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, var(--bg-sky) 0%, var(--bg-sky-mid) 50%, var(--bg-sky) 100%);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
 
-<!-- Sección de Razas --> <section id="razas" class="max-w-7xl mx-auto px-4 py-16"> <div class="text-center mb-12"> <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Razas Populares</h2> <p class="text-slate-600 max-w-xl mx-auto">Cada raza felina tiene una historia y características que los hacen especiales. Conoce algunos de los favoritos del mundo.</p> </div>
+    header {
+      background: linear-gradient(90deg, #dbeafe 0%, #ede9fe 55%, #fef9c3 100%);
+      border-bottom: 2px solid var(--border-sky);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- Raza 1: Persa --> <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"> <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80" alt="Gato Persa" class="w-full h-56 object-cover"> <div class="p-6"> <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">Tranquilo</span> <h3 class="text-xl font-bold mt-3 mb-2">Gato Persa</h3> <p class="text-slate-600 text-sm mb-4">Reconocido por su lujoso pelaje largo y su cara chata. Son extremadamente cariñosos, tranquilos y amantes de los hogares calmados.</p> <ul class="text-xs text-slate-500 space-y-1 mb-4"> <li>• <strong>Origen:</strong> Irán (Persia)</li> <li>• <strong>Peso:</strong> 3 - 5 kg</li> <li>• <strong>Esperanza de vida:</strong> 12 - 17 años</li> </ul> </div> </div>
+    .nav-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
 
-<!-- Raza 2: Maine Coon --> <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"> <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80" alt="Gato Maine Coon" class="w-full h-56 object-cover"> <div class="p-6"> <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">Gigante Gentil</span> <h3 class="text-xl font-bold mt-3 mb-2">Maine Coon</h3> <p class="text-slate-600 text-sm mb-4">Una de las razas domesticadas más grandes del mundo. Son conocidos por su inteligencia, sociabilidad y sus magníficos mechones en las orejas.</p> <ul class="text-xs text-slate-500 space-y-1 mb-4"> <li>• <strong>Origen:</strong> Estados Unidos</li> <li>• <strong>Peso:</strong> 6 - 11 kg</li> <li>• <strong>Esperanza de vida:</strong> 12 - 15 años</li> </ul> </div> </div>
+    .logo {
+      font-weight: 800;
+      color: var(--purple-deep);
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-<!-- Raza 3: Siamés --> <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"> <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=600&q=80" alt="Gato Siamés" class="w-full h-56 object-cover"> <div class="p-6"> <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">Vocal y Activo</span> <h3 class="text-xl font-bold mt-3 mb-2">Gato Siamés</h3> <p class="text-slate-600 text-sm mb-4">Famosos por sus llamativos ojos azules y su patrón de color puntiagudo. Son gatos muy vocales, leérgicos y les encanta interactuar con humanos.</p> <ul class="text-xs text-slate-500 space-y-1 mb-4"> <li>• <strong>Origen:</strong> Tailandia (Siam)</li> <li>• <strong>Peso:</strong> 3 - 5 kg</li> <li>• <strong>Esperanza de vida:</strong> 15 - 20 años</li> </ul> </div> </div> </div> </section>
+    .logo span {
+      color: var(--sky-deep);
+    }
 
-<!-- Sección de Cuidados --> <section id="cuidados" class="bg-amber-100 py-16 px-4"> <div class="max-w-5xl mx-auto"> <div class="text-center mb-12"> <h2 class="text-3xl font-bold text-slate-900 mb-2">Consejos Básicos de Cuidado Felino</h2> <p class="text-slate-600">Mantén a tu compañero saludable y feliz con estos simples consejos.</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4"> <div class="text-3xl">🍲</div> <div> <h4 class="font-bold text-lg mb-1">Nutrición Balanceada</h4> <p class="text-sm text-slate-600">Proporciona alimento de alta calidad adecuado para su edad, peso y estilo de vida, además de agua fresca siempre disponible.</p> </div> </div> <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4"> <div class="text-3xl">🩺</div> <div> <h4 class="font-bold text-lg mb-1">Visitas al Veterinario</h4> <p class="text-sm text-slate-600">Mantén al día sus vacunas, desparasitaciones y realiza revisiones médicas anuales para prevenir enfermedades.</p> </div> </div> </div> </div> </section>
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--yellow-warm);
+      display: inline-block;
+    }
 
-<!-- Footer --> <footer id="contacto" class="bg-slate-900 text-white py-8 text-center"> <div class="max-w-7xl mx-auto px-4"> <p class="text-sm text-slate-400">© 2026 Mundo Felino. Creado con pasión para los amantes de los gatos.</p> </div> </footer>
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-</body> </html>
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(186, 230, 253, 0.65);
+      transition: all 0.2s ease;
+    }
 
+    nav a:hover {
+      background: var(--yellow-soft);
+      color: var(--purple-deep);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #bae6fd 0%, #ddd6fe 55%, #fef08a 100%);
+      border-bottom: 2px solid var(--border-sky);
+      padding: 3.2rem 1.5rem;
+    }
+
+    .hero-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--yellow-soft);
+      color: #854d0e;
+      border: 1px solid var(--yellow-main);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: 2.15rem;
+      line-height: 1.2;
+      color: var(--purple-deep);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      color: var(--text-dark);
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-purple {
+      background: linear-gradient(135deg, var(--purple-main), var(--sky-main));
+      color: #f0f9ff;
+    }
+
+    .btn-yellow {
+      background: var(--yellow-main);
+      color: #1e1b4b;
+      border: 1.5px solid var(--yellow-warm);
+    }
+
+    .btn-sky {
+      background: #bae6fd;
+      color: var(--sky-deep);
+      border: 1.5px solid var(--sky-main);
+    }
+
+    .hero-panel {
+      background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+      border: 1.5px solid var(--border-sky);
+      border-top: 5px solid var(--yellow-warm);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero-panel h3 {
+      color: var(--purple-deep);
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--yellow-soft);
+    }
+
+    .hero-panel ul {
+      list-style: none;
+      font-size: 0.92rem;
+    }
+
+    .hero-panel li {
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed #93c5fd;
+    }
+
+    .hero-panel li:last-child {
+      border-bottom: none;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .sec-head {
+      margin-bottom: 1.3rem;
+    }
+
+    .sec-tag {
+      display: inline-block;
+      background: var(--purple-soft);
+      color: var(--purple-deep);
+      border: 1px solid #c4b5fd;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.35rem;
+    }
+
+    .sec-head h2 {
+      font-size: 1.65rem;
+      color: var(--purple-deep);
+    }
+
+    .sec-head p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: linear-gradient(160deg, var(--bg-card) 0%, #e0f2fe 100%);
+      border: 1px solid var(--border-sky);
+      border-top: 4px solid var(--purple-main);
+      border-radius: 14px;
+      padding: 1.45rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card.sky-top {
+      background: linear-gradient(160deg, #e0f2fe 0%, var(--bg-card-alt) 100%);
+      border-top-color: var(--sky-main);
+    }
+
+    .card.yellow-top {
+      background: linear-gradient(160deg, #fef9c3 0%, #e0f2fe 100%);
+      border-top-color: var(--yellow-warm);
+    }
+
+    .card h3 {
+      color: var(--purple-deep);
+      margin-bottom: 0.55rem;
+      font-size: 1.12rem;
+    }
+
+    .card p, .card li {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.45rem;
+    }
+
+    .card li {
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-citrus {
+      display: inline-block;
+      background: var(--yellow-soft);
+      color: #854d0e;
+      border: 1px solid var(--yellow-main);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.65rem;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .firma-box {
+      background: linear-gradient(145deg, var(--yellow-soft) 0%, var(--purple-soft) 100%);
+      border: 2px dashed var(--yellow-warm);
+      border-radius: 14px;
+      padding: 1.3rem;
+    }
+
+    .firma-box h4 {
+      color: var(--purple-deep);
+      margin-bottom: 0.45rem;
+      font-size: 1.05rem;
+    }
+
+    .cv-box {
+      background: linear-gradient(125deg, #bae6fd 0%, var(--purple-soft) 55%, var(--yellow-soft) 100%);
+      border: 1.5px solid var(--border-sky);
+      border-radius: 16px;
+      padding: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .cv-box h3 {
+      color: var(--purple-deep);
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-box p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #bae6fd 0%, #ddd6fe 50%, #fef08a 100%);
+      border-top: 2px solid var(--border-sky);
+      text-align: center;
+      padding: 1.6rem 1rem;
+      color: var(--text-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 780px) {
+      .hero-grid, .bio-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-wrap">
+      <div class="logo"><span class="logo-dot"></span> KGBZ <span>· Ingeniería de Procesos</span></div>
+      <nav>
+        <a href="#perfil">Perfil</a>
+        <a href="#capacitacion">Capacitación</a>
+        <a href="#bio-esencia">Bio-Esencia</a>
+        <a href="#derecho-procesal">Derecho Procesal</a>
+        <a href="#cv">CV en PDF</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="pill">PORTAFOLIO ACADÉMICO · 2026</span>
+        <h1>Kinnereth Geraldine Bazán Zúñiga</h1>
+        <p>
+          Estudiante de Ingeniería Química con enfoque hacia la especialización en <strong>Ingeniería de Procesos</strong>, integrando química aplicada, aprovechamiento sustentable de recursos y mejora continua.
+        </p>
+        <div class="btn-row">
+          <a href="cv-geraldine.pdf" target="_blank" class="btn btn-purple">Ver CV (PDF)</a>
+          <a href="cv-geraldine.pdf" download class="btn btn-sky">Descargar CV</a>
+          <a href="#bio-esencia" class="btn btn-yellow">Proyecto Bio-Esencia</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>Entregables y Contenido</h3>
+        <ul>
+          <li><strong>1. Currículum Vitae:</strong> Versión web, documento físico y archivo PDF descargable.</li>
+          <li><strong>2. Derecho Procesal del Trabajo:</strong> Principios, conciliación prejudicial y juicio laboral (LFT).</li>
+          <li><strong>3. Proyecto Personal Bio-Esencia:</strong> Proyecto concluido con constancia en PDF firmada por mamá.</li>
+          <li><strong>4. Capacitación Continua:</strong> Inglés en YouTube (Miguel Idiomas) y cursos técnicos en Udemy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="perfil">
+      <div class="sec-head">
+        <span class="sec-tag">01 · Perfil y Objetivo</span>
+        <h2>Especialización en Ingeniería de Procesos</h2>
+        <p>Formación orientada al diseño, control y optimización de procesos químicos e industriales.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Perfil Académico</h3>
+          <p>
+            Estudiante de primer semestre de Ingeniería Química en el <strong>Tecnológico Nacional de México, Campus Celaya</strong>. Me distingo por una metodología ordenada, analítica y enfocada en comprender los fundamentos científicos detrás de cada operación.
+          </p>
+        </div>
+        <div class="card sky-top">
+          <h3>Objetivo Profesional</h3>
+          <p>
+            Especializarme en <strong>Ingeniería de Procesos</strong> para desarrollar y optimizar sistemas productivos eficientes, seguros y sostenibles mediante el aprovechamiento integral de materias primas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="capacitacion">
+      <div class="sec-head">
+        <span class="sec-tag">02 · Formación Complementaria</span>
+        <h2>YouTube y Udemy</h2>
+        <p>Desarrollo paralelo de idiomas y competencias técnicas.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card yellow-top">
+          <h3>Curso de Inglés · YouTube (Miguel Idiomas)</h3>
+          <p>
+            Estudio constante de inglés complementando el Centro de Idiomas, con el objetivo de leer documentación técnica y científica en ingeniería sin depender de traducciones.
+          </p>
+        </div>
+        <div class="card sky-top">
+          <h3>Capacitación en Udemy</h3>
+          <p>
+            Cursos autodidactas en la plataforma Udemy para fortalecer herramientas digitales, programación y habilidades prácticas aplicadas al análisis de datos y procesos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bio-esencia">
+      <div class="sec-head">
+        <span class="sec-tag">03 · Proyecto Personal Acabado</span>
+        <h2>Bio-Esencia: Bioconservador Natural a partir de Cítricos</h2>
+        <p>Valorización de residuos agroindustriales mediante extracción de aceites esenciales.</p>
+      </div>
+
+      <div class="card yellow-top bio-grid">
+        <div>
+          <span class="badge-citrus">Proyecto Concluido · Economía Circular y Procesos</span>
+          <h3>¿Qué es Bio-Esencia?</h3>
+          <p style="margin-bottom: 0.7rem;">
+            <strong>Bio-Esencia</strong> es un proyecto enfocado en el aprovechamiento sustentable de cáscaras desechadas de naranja y limón para extraer aceites esenciales ricos en <strong>D-limoneno</strong> mediante destilación por arrastre de vapor.
+          </p>
+          <ul>
+            <li><strong>Objetivo:</strong> Formular un recubrimiento/bioconservador natural con propiedades antimicrobianas para prolongar la vida útil de frutas de exportación como el aguacate, reduciendo pérdidas poscosecha.</li>
+            <li><strong>Aplicación en Procesos:</strong> Selección y acondicionamiento de materia prima, operación unitaria de extracción por arrastre de vapor, separación de fases y formulación del producto.</li>
+            <li><strong>Impacto:</strong> Disminución de residuos orgánicos cítricos y alternativa ecológica frente a conservadores sintéticos.</li>
+          </ul>
+        </div>
+
+        <div class="firma-box">
+          <h4>Validación y Firma de Mamá (PDF)</h4>
+          <p style="margin-bottom: 0.9rem;">
+            Documento oficial con la foto/escaneo de la firma de validación de mi mamá que avala la conclusión del proyecto personal <strong>Bio-Esencia</strong>.
+          </p>
+          <div class="btn-row">
+            <a href="firma-mama.pdf" target="_blank" class="btn btn-yellow">Ver Firma en PDF</a>
+            <a href="firma-mama.pdf" download class="btn btn-purple">Descargar PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="derecho-procesal">
+      <div class="sec-head">
+        <span class="sec-tag">04 · Marco Jurídico Laboral</span>
+        <h2>Derecho Procesal del Trabajo (Ley Federal del Trabajo)</h2>
+        <p>Normas y etapas que regulan la solución de conflictos laborales en México.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Principios y Conciliación Prejudicial</h3>
+          <ul>
+            <li><strong>Principios procesales (Art. 685 LFT):</strong> Gratuidad, inmediatez, oralidad, publicidad, continuidad y concentración.</li>
+            <li><strong>Conciliación obligatoria previa:</strong> Antes de acudir a un Tribunal Laboral, trabajador y patrón deben agotar la instancia conciliatoria en el Centro de Conciliación para buscar un acuerdo rápido.</li>
+          </ul>
+        </div>
+        <div class="card sky-top">
+          <h3>Juicio Laboral, Pruebas y Resolución</h3>
+          <ul>
+            <li><strong>Etapas del procedimiento:</strong> Demanda escrita, contestación, audiencia preliminar (depuración y admisión de pruebas) y audiencia de juicio (desahogo de pruebas, alegatos y sentencia).</li>
+            <li><strong>Carga de la prueba:</strong> Corresponde al patrón acreditar condiciones básicas como jornada, salario, antigüedad y pago de prestaciones.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="sec-head">
+        <span class="sec-tag">05 · Currículum Vitae</span>
+        <h2>Currículum Vitae en Web y PDF</h2>
+        <p>Disponible en formato impreso físico y para consulta o descarga digital.</p>
+      </div>
+      <div class="cv-box">
+        <div>
+          <h3>Currículum Vitae · Kinnereth Geraldine Bazán Zúñiga</h3>
+          <p>Ingeniería Química (Enfoque en Ingeniería de Procesos) · TecNM Campus Celaya</p>
+        </div>
+        <div class="btn-row">
+          <a href="cv-geraldine.pdf" target="_blank" class="btn btn-purple">Ver CV (PDF)</a>
+          <a href="cv-geraldine.pdf" download class="btn btn-sky">Descargar CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="sec-head">
+        <span class="sec-tag">06 · Contacto</span>
+        <h2>Información de Contacto</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Correo Electrónico</h3>
+          <p><a href="mailto:26032221@itcelaya.edu.mx" style="color: var(--purple-deep); font-weight: 700;">26032221@itcelaya.edu.mx</a></p>
+        </div>
+        <div class="card sky-top">
+          <h3>Teléfono</h3>
+          <p><a href="tel:4613029965" style="color: var(--sky-deep); font-weight: 700;">461 302 9965</a></p>
+        </div>
+        <div class="card yellow-top">
+          <h3>Ubicación</h3>
+          <p>Celaya, Guanajuato, México</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Kinnereth Geraldine Bazán Zúñiga · 26032221@itcelaya.edu.mx · 461 302 9965 · 2026</p>
+  </footer>
+
+</body>
+</html>
